@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.DishesDao">
+	<insert id="insertDish" parameterType="Dishes">
+		INSERT INTO dishes(
+				dish_name,
+				price
+			) values (
+				#{dishName},
+				#{price}			
+			);
+	</insert>
+	
+	<select id="queryDishesList" resultType="Dishes">
+		select 
+			dish_name,
+			price,
+			create_time
+		from
+			dishes
+		ORDER BY
+			create_time DESC
+<!-- 		LIMIT #{offset},#{limit}; -->
+	</select>
+	
+</mapper>
