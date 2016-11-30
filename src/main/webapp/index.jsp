@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="common/tag.jsp" %>
 <!DOCTYPE html>
 <html>
    <head>
-      <title>购买列表页</title>
-      <%@include file="common/head.jsp" %>
+      <title>首页</title>
+      <%@include file="/WEB-INF/jsp/common/head.jsp" %>
    </head>
    <body>
    		<div class="container">
    			<div class="panel panel-default">
    				<div class="panel-heading text-context">
-   					<h2>购买列表</h2>
+   					<h2>功能项</h2>
    				</div>
    				<div class="panel-body">
    					<a class="btn btn-info " href="/DishesAccounts/list">浏览</a>
