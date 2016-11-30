@@ -27,11 +27,17 @@
 							<input name="price" type="text" />
 						</div>
 					</div>
-					<button type="submit" class="btn btn-info">新增</button>
+					<button type="button" class="btn btn-info" onclick="insertDish();">新增</button>
 				</form>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+	function insertDish(){
+		$(this).addClass("disabled");
+		document.forms[0].submit();
+	}
+	</script>
 </body>
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script
