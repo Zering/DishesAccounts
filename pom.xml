@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.app</groupId>
-  <artifactId>DishesAccounts</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>DishesAccounts Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.app</groupId>
+	<artifactId>DishesAccounts</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>DishesAccounts Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
 		<!-- 单元测试 -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -20,6 +20,12 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
 			<version>1.1.1</version>
 		</dependency>
 
@@ -121,7 +127,7 @@
 			<artifactId>commons-collections</artifactId>
 			<version>3.2</version>
 		</dependency>
-		
+
 		<!-- 格式化对象，方便输出日志 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -129,7 +135,7 @@
 			<version>1.1.41</version>
 		</dependency>
 	</dependencies>
-  <build>
-    <finalName>DishesAccounts</finalName>
-  </build>
+	<build>
+		<finalName>DishesAccounts</finalName>
+	</build>
 </project>

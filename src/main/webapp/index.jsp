@@ -13,8 +13,14 @@
    					<h2>功能项</h2>
    				</div>
    				<div class="panel-body">
-   					<a class="btn btn-info " href="/DishesAccounts/list">浏览</a>
-   					<a class="btn btn-info " href="/DishesAccounts/insert">新增</a>
+   					<a class="btn btn-info " href="/DishesAccounts/list">购买记录</a><br />
+   						<p class="text-left text-info lead">
+   							做菜材料的购买记录
+   						</p>
+   					<a class="btn btn-info " href="/DishesAccounts/menu">菜单浏览</a>
+   						<p class="text-left text-info lead">
+   							做菜所需的材料搭配
+   						</p>
    				</div>
    			</div>
    		</div>

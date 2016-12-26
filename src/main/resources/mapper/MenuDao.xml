@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.MenuDao">
+	<insert id="insertMenuGetId" parameterType="Menu" useGeneratedKeys="true"
+		keyProperty="menuId">
+		insert into menu (
+			menu_name
+		) values (
+			#{menuName}
+		);
+	</insert>
+	
+	<resultMap type="com.app.dto.MenuDetail" id="menuDetails">
+		<id property="menu.menuId" column="menu_id"/>
+		<result property="menu.menuName" column="menu_name"/>
+		<result property="menu.createTime" column="create_time" />
+		<collection property="materials" ofType="Material">
+			<result property="materialName" column="material_name"/>
+		</collection>
+	</resultMap>
+	
+	<select id="getMenuDetails" resultMap="menuDetails">
+		select 
+			me.menu_id menu_id,
+			me.menu_name menu_name,
+			me.create_time create_time,
+			ma.material_name material_name
+		from
+			menu me 
+		left join 
+			material ma 
+		on me.menu_id = ma.menu_id; 
+	</select>
+</mapper>

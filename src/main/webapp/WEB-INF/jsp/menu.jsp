@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>购买列表页</title>
+<title>菜单列表页</title>
 <%@include file="common/head.jsp"%>
 </head>
 <body>
@@ -23,32 +23,31 @@
 						</div>
 						<div class="collapse navbar-collapse" id="example-navbar-collapse">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="/DishesAccounts/list">购买记录</a></li>
-								<li><a href="/DishesAccounts/menu">菜单浏览</a></li>
+								<li><a href="/DishesAccounts/list">购买记录</a></li>
+								<li class="active"><a href="/DishesAccounts/menu">菜单浏览</a></li>
 							</ul>
 						</div>
 					</div>
 				</nav>
 			</div>
 			<div class="panel-body">
-				<a class="btn btn-info " href="/DishesAccounts/insert">新增</a>
-				<button type="button" class="btn btn-info" title="今日计划"
-					data-container="body" data-toggle="popover" data-placement="bottom"
-					data-content="计划菜单" onclick="viewTodayMenu();">今日计划</button>
-				<table class="table table-hover">
+				<a class="btn btn-info " href="/DishesAccounts/insertMenu">新增</a>
+				<table class="table table-hover table-bordered">
 					<thead>
 						<tr class="success">
-							<th>名称</th>
-							<th>费用</th>
+							<th>菜单</th>
+							<th>用料</th>
 							<th>时间</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="da" items="${list}">
+						<c:forEach var="me" items="${menues}">
 							<tr>
-								<td>${da.dishName}</td>
-								<td>${da.price}</td>
-								<td><fmt:formatDate value="${da.createTime }"
+								<td>${me.menu.menuName}</td>
+								<td><c:forEach var="ma" items="${me.materials}">
+									`${ma.materialName}`<br />
+								</c:forEach></td>
+								<td><fmt:formatDate value="${me.menu.createTime }"
 										pattern="yyyy-MM-dd HH:mm:ss" /></td>
 							</tr>
 						</c:forEach>
@@ -58,11 +57,5 @@
 		</div>
 	</div>
 </body>
-
-<script>
-	$(function() {
-		$("[data-toggle='popover']").popover();
-	});
-</script>
 
 </html>

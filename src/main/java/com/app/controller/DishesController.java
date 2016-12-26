@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.alibaba.fastjson.JSON;
 import com.app.entity.Dishes;
 import com.app.service.DishesServiceI;
 
@@ -32,9 +31,9 @@ public class DishesController {
 	public String insertDish(Dishes dishes,Model model) {
 		int result = dishesService.insertDish(dishes);
 		if (result == 1) {
-			logger.info("新增成功：{}",JSON.toJSONString(dishes));
+			logger.info("新增成功：{}",dishes);
 		} else {
-			logger.error("新增失败：{}",JSON.toJSONString(dishes));
+			logger.error("新增失败：{}",dishes);
 		}
 		return "redirect:/list";
 	}

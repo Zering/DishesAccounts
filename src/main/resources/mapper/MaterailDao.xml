@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.MaterialDao">
+	<insert id="insertMaterails">
+		insert into material (
+			menu_id,
+			material_name
+		) values 
+			<foreach collection="list" item="materials" index="index" separator=",">
+				(
+					#{materials.menuId},
+					#{materials.materialName}
+				)
+			</foreach>
+		;
+	</insert>
+
+</mapper>
