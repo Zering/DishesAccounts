@@ -9,9 +9,9 @@
 </head>
 <body>
 	<div class="container">
-		<div class="panel-head">
+		<div class="panel panel-default">
 			<div class="panel-heading text-context">
-				<nav class="navbar navbar-default " role="navigation">
+				<nav class="navbar navbar-default navbar-static-top" role="navigation">
 					<div class="container-fluid">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle"
