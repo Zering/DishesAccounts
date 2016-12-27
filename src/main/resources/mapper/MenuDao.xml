@@ -33,4 +33,26 @@
 			material ma 
 		on me.menu_id = ma.menu_id; 
 	</select>
+	
+	
+	<select id="getTodayPlans" resultMap="menuDetails">
+		SELECT 
+			me.menu_id menu_id,
+			me.menu_name menu_name,
+			me.create_time create_time,
+			ma.material_name material_name 
+		FROM 
+			today_plan t 
+		LEFT JOIN 
+			menu me 
+		ON 
+			t.menu_id = me.menu_id
+		LEFT JOIN 
+			material ma 
+		ON 
+			me.menu_id = ma.menu_id
+		WHERE 
+			DATE(t.create_time) = CURDATE();
+	</select>
+	
 </mapper>

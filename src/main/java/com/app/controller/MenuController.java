@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.app.dto.MenuDetail;
 import com.app.entity.Material;
@@ -50,5 +51,14 @@ public class MenuController {
 		logger.info("记入数据库的MenuDetail:{}",menuDetail);
 		menuServiceI.insertMenuAndMaterials(menuDetail);
 		return "redirect:/menu";
+	}
+	
+	
+	@RequestMapping(value = "/getTodayPlans", method = RequestMethod.POST)
+	@ResponseBody
+	public List<MenuDetail> getTodayPlans() {
+		List<MenuDetail> menuDetails = menuServiceI.getTodayPlans(); 
+		logger.info("今日计划：{}",menuDetails);
+		return menuDetails;
 	}
 }

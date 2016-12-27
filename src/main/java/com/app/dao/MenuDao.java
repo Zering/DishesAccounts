@@ -7,8 +7,10 @@ import com.app.entity.Menu;
 
 public interface MenuDao {
 
-	//返回自增的menu_id
+	//返回自增的menu_id,取用方法menu.getMenuId()
 	int insertMenuGetId(Menu menu);
 	
 	List<MenuDetail> getMenuDetails();
+	
+	List<MenuDetail> getTodayPlans();
 }

@@ -11,7 +11,7 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading text-context">
-				<h2>购买</h2>
+				<a href="/DishesAccounts/list"><h2>购买</h2></a>
 			</div>
 			<div class="panel-body">
 				<form action="/DishesAccounts/insert" class="form-horizontal"

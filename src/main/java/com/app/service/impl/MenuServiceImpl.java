@@ -58,4 +58,10 @@ public class MenuServiceImpl implements MenuServiceI {
 		return menuDetails;
 	}
 
+
+	@Override
+	public List<MenuDetail> getTodayPlans() {
+		return menuDao.getTodayPlans();
+	}
+
 }

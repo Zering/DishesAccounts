@@ -9,4 +9,6 @@ public interface MenuServiceI {
 	int insertMenuAndMaterials(MenuDetail menuDetail);
 	
 	List<MenuDetail> getMenuDetails();
+	
+	List<MenuDetail> getTodayPlans();
 }

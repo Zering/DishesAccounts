@@ -11,7 +11,8 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading text-context">
-				<nav class="navbar navbar-default navbar-static-top" role="navigation">
+				<nav class="navbar navbar-default navbar-static-top"
+					role="navigation">
 					<div class="container-fluid">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle"
@@ -32,9 +33,8 @@
 			</div>
 			<div class="panel-body">
 				<a class="btn btn-info " href="/DishesAccounts/insert">新增</a>
-				<button type="button" class="btn btn-info" title="今日计划"
-					data-container="body" data-toggle="popover" data-placement="bottom"
-					data-content="计划菜单" onclick="viewTodayMenu();">今日计划</button>
+				<button type="button" class="btn btn-info" id="viewTodayMenu">今日计划</button>
+				<table class="table table-hover" id="todayPlan"></table>
 				<table class="table table-hover">
 					<thead>
 						<tr class="success">
@@ -60,9 +60,31 @@
 </body>
 
 <script>
-	$(function() {
-		$("[data-toggle='popover']").popover();
-	});
+	$("#viewTodayMenu").one(
+			"click",
+			function() {
+				var tbodystr = "";
+				$.post("/DishesAccounts/getTodayPlans", {}, function(result) {
+					var planEle = $("#todayPlan");
+					for (var i = 0; i < result.length; i++) {
+						tbodystr += "<tr class=\"warning\">";
+						tbodystr += "<td>计划" + (i + 1) + "</td>";
+						/* tbodystr += "<td>"+new Date(result[i].menu.createTime)+"</td>"; */
+						tbodystr += "<td>" + result[i].menu.menuName + "</td>";
+						tbodystr += "<td>";
+						for (var j = 0; j < result[i].materials.length; j++) {
+							tbodystr += "`"
+									+ result[i].materials[j].materialName
+									+ "`<br />";
+						}
+						tbodystr += "</td>";
+						tbodystr += "</tr>";
+					}
+
+					planEle.append(tbodystr);
+					console.log("result:" + result);
+				})
+			});
 </script>
 
 </html>

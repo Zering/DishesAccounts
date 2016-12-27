@@ -23,16 +23,20 @@ public class MenuDaoTest {
 	public void insertdao() {
 		Menu menu = new Menu();
 		menu.setMenuName("可乐鸡翅");
-		
 		dao.insertMenuGetId(menu);
-		
 		System.out.println(menu.getMenuId());
 	}
 	
 	@Test
 	public void getMenuDetails() {
-		
 		List<MenuDetail> menuDetails = dao.getMenuDetails();
+		System.out.println(menuDetails);
+	}
+	
+	@Test
+	public void getTodayPlans() {
+		List<MenuDetail> menuDetails = dao.getTodayPlans();
+		System.out.println(menuDetails.size());
 		System.out.println(menuDetails);
 	}
 }

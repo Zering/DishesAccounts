@@ -33,3 +33,13 @@ create table material(
 	foreign key(`menu_id`) references menu(`menu_id`),
 	key idx_create_time(`create_time`)
 )ENGINE=INNODB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='用料表';
+
+--创建今日计划表
+create table today_plan(
+	`plan_id` BIGINT not null AUTO_INCREMENT comment '计划id',
+	`menu_id` BIGINT not null  comment '菜单id',
+	`create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+	primary key(`plan_id`),
+	foreign key(`menu_id`) references menu(`menu_id`),
+	key idx_create_time(`create_time`)
+)ENGINE=INNODB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='今日计划表';
