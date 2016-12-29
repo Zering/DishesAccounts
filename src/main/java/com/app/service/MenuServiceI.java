@@ -10,5 +10,4 @@ public interface MenuServiceI {
 	
 	List<MenuDetail> getMenuDetails();
 	
-	List<MenuDetail> getTodayPlans();
 }

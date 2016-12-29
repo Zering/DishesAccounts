@@ -33,10 +33,4 @@ public class MenuDaoTest {
 		System.out.println(menuDetails);
 	}
 	
-	@Test
-	public void getTodayPlans() {
-		List<MenuDetail> menuDetails = dao.getTodayPlans();
-		System.out.println(menuDetails.size());
-		System.out.println(menuDetails);
-	}
 }

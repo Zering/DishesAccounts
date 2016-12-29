@@ -35,9 +35,10 @@
 				<table class="table table-hover table-bordered">
 					<thead>
 						<tr class="success">
-							<th>菜单</th>
-							<th>用料</th>
-							<th>时间</th>
+							<th width="40%">菜单</th>
+							<th width="30%">用料</th>
+							<!-- <th>时间</th> -->
+							<th width="30%">操作</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -47,8 +48,9 @@
 								<td><c:forEach var="ma" items="${me.materials}">
 									`${ma.materialName}`<br />
 								</c:forEach></td>
-								<td><fmt:formatDate value="${me.menu.createTime }"
-										pattern="yyyy-MM-dd HH:mm:ss" /></td>
+								<%-- <td><fmt:formatDate value="${me.menu.createTime }"
+										pattern="yyyy-MM-dd HH:mm:ss" /></td> --%>
+								<td><button class="btn btn-info" id="${me.menu.menuId}" onclick="insertTodayPlan(${me.menu.menuId})">加入计划</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -57,5 +59,17 @@
 		</div>
 	</div>
 </body>
-
+<script type="text/javascript">
+	function insertTodayPlan(id){
+		$.post("/DishesAccounts/insertTodayPlan",{menuId:id},function(result){
+			console.log(result);
+			if(result = 1){
+				alert("添加成功");
+				$("#"+id).addClass("disabled");
+			}else{
+				alert("添加失败");
+			}
+		})
+	}
+</script>
 </html>

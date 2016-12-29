@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.dao.TodayPlanDao">
+	<insert id="insertTodayPlan">
+		insert into today_plan (menu_id) values (#{menuId});
+	</insert>
+
+	<resultMap type="com.app.dto.MenuDetail" id="menuDetails">
+		<id property="menu.menuId" column="menu_id" />
+		<result property="menu.menuName" column="menu_name" />
+		<result property="menu.createTime" column="create_time" />
+		<collection property="materials" ofType="Material">
+			<result property="materialName" column="material_name" />
+		</collection>
+	</resultMap>
+
+	<select id="getTodayPlans" resultMap="menuDetails">
+		SELECT
+			me.menu_id menu_id,
+			me.menu_name menu_name,
+			me.create_time create_time,
+			ma.material_name material_name
+		FROM
+			today_plan t
+		LEFT JOIN
+			menu me
+		ON
+			t.menu_id = me.menu_id
+		LEFT JOIN
+			material ma
+		ON
+			me.menu_id = ma.menu_id
+		WHERE
+			DATE(t.create_time) = CURDATE();
+	</select>
+</mapper>
