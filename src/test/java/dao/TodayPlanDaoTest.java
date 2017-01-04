@@ -24,4 +24,10 @@ public class TodayPlanDaoTest {
 		System.out.println(menuDetails);
 	}
 	
+	@Test
+	public void checkTodayPlan() {
+		int result = dao.checkTodayPlan(1017);
+		System.out.println(result);
+	}
+	
 }

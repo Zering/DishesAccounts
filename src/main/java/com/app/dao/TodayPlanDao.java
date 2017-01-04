@@ -9,4 +9,6 @@ public interface TodayPlanDao {
 	int insertTodayPlan(int menuId);
 
 	List<MenuDetail> getTodayPlans();
+	
+	int checkTodayPlan(int menuId);
 }

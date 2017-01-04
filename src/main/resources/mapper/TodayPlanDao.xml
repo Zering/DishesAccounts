@@ -35,4 +35,15 @@
 		WHERE
 			DATE(t.create_time) = CURDATE();
 	</select>
+	
+	<select id="checkTodayPlan" resultType="java.lang.Integer">
+		SELECT
+			COUNT(*)
+		FROM 
+			today_plan
+		WHERE
+			menu_id = #{menuId}
+		AND
+			DATE(create_time) = CURDATE();
+	</select>
 </mapper>

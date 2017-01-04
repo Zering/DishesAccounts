@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.app.dto.InsertResult;
 import com.app.dto.MenuDetail;
 import com.app.service.TodayPlanServiceI;
 
 @Controller
 public class TodayPlanController {
-	
+
 	private static Logger logger = LoggerFactory.getLogger(TodayPlanController.class);
 
 	@Autowired
 	private TodayPlanServiceI service;
-	
-	
+
 	@RequestMapping(value = "/getTodayPlans", method = RequestMethod.POST)
 	@ResponseBody
 	public List<MenuDetail> getTodayPlans() {
@@ -33,8 +33,10 @@ public class TodayPlanController {
 
 	@RequestMapping(value = "insertTodayPlan", method = RequestMethod.POST)
 	@ResponseBody
-	public int insertTodayPlan(@Param(value = "menuId") int menuId) {
-		System.out.println("insert menuId:" + menuId);
-		return service.insertTodayPlan(menuId);
+	public InsertResult<String> insertTodayPlan(@Param(value = "menuId") int menuId) {
+		logger.info("待添加计划的menuId:{}", menuId);
+		InsertResult<String> result = service.insertTodayPlan(menuId);
+		logger.info("添加结果：{}", result);
+		return result;
 	}
 }

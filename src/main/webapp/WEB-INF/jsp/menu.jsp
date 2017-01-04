@@ -11,7 +11,8 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<nav class="navbar navbar-default navbar-static-top" role="navigation">
+				<nav class="navbar navbar-default navbar-static-top"
+					role="navigation">
 					<div class="container-fluid">
 						<div class="navbar-header">
 							<button type="button" class="navbar-toggle"
@@ -47,10 +48,11 @@
 								<td>${me.menu.menuName}</td>
 								<td><c:forEach var="ma" items="${me.materials}">
 									`${ma.materialName}`<br />
-								</c:forEach></td>
+									</c:forEach></td>
 								<%-- <td><fmt:formatDate value="${me.menu.createTime }"
 										pattern="yyyy-MM-dd HH:mm:ss" /></td> --%>
-								<td><button class="btn btn-info" id="${me.menu.menuId}" onclick="insertTodayPlan(${me.menu.menuId})">加入计划</button></td>
+								<td><button class="btn btn-info" id="${me.menu.menuId}"
+										onclick="insertTodayPlan(${me.menu.menuId})">加入计划</button></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -58,18 +60,15 @@
 			</div>
 		</div>
 	</div>
+
 </body>
 <script type="text/javascript">
 	function insertTodayPlan(id){
+			alert("start");
 		$.post("/DishesAccounts/insertTodayPlan",{menuId:id},function(result){
 			console.log(result);
-			if(result = 1){
-				alert("添加成功");
-				$("#"+id).addClass("disabled");
-			}else{
-				alert("添加失败");
-			}
-		})
+			alert(result.data);
+		});
 	}
 </script>
 </html>
